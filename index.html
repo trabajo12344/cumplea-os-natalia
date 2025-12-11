@@ -93,15 +93,15 @@
 <body>
 
     <!-- Globos animados -->
-    <img src="pastel.gif" class="balloon" style="left: 10%">
-    <img src="pastel.gif" class="balloon" style="left: 50%; width: 80px">
-    <img src="pastel.gif" class="balloon" style="left: 80%">
+    <img src="gif/pastel.gif" class="balloon" style="left: 10%">
+    <img src="gif/pastel.gif" class="balloon" style="left: 50%; width: 80px">
+    <img src="gif/pastel.gif" class="balloon" style="left: 80%">
 
     <div class="container">
         <h1>🎉¡Feliz Cumpleaños Natalia!🎉</h1>
 
         <div class="photo-box">
-            <img src="fondo-chayanne.jpg" alt="Foto cumpleaños">
+            <img src="imagenes/fondo-chayanne.jpg" alt="Foto cumpleaños">
         </div>
 
         <div class="letter-box">
@@ -129,7 +129,7 @@
             document.body.appendChild(c);
         }
     </script>
-<audio id="music" src="sonido.mp3"></audio>
+<audio id="music" src="sonido/sonido.mp3"></audio>
 <script>
 let moves = 0;
 const btn = document.getElementById("trickBtn");
@@ -142,7 +142,7 @@ btn.addEventListener("click", () => {
         btn.style.left = Math.random()*80 + "vw";
         btn.style.top = Math.random()*80 + "vh";
     } else {
-        window.location.href = "carta.html";
+        window.location.href = "index.html";
     }
 });
 </script>
