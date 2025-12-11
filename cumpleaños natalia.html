@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz Cumple Natalia</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffb3f0, #ffe3ff);
+            overflow-x: hidden;
+        }
+
+        /* Fondo animado con globos */
+        .balloon {
+            position: fixed;
+            bottom: -150px;
+            width: 60px;
+            animation: floatUp 12s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0); }
+            100% { transform: translateY(-130vh) rotate(20deg); }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            background: randomColor;
+            animation: fall 6s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0); }
+            100% { transform: translateY(110vh) rotate(360deg); }
+        }
+
+        /* Contenedor principal */
+        .container {
+            text-align: center;
+            padding: 30px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #d400ff;
+            text-shadow: 0 0 10px white;
+        }
+
+        .photo-box {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .photo-box img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .letter-box {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Globos animados -->
+    <img src="pastel.gif" class="balloon" style="left: 10%">
+    <img src="pastel.gif" class="balloon" style="left: 50%; width: 80px">
+    <img src="pastel.gif" class="balloon" style="left: 80%">
+
+    <div class="container">
+        <h1>🎉¡Feliz Cumpleaños Natalia!🎉</h1>
+
+        <div class="photo-box">
+            <img src="fondo-chayanne.jpg" alt="Foto cumpleaños">
+        </div>
+
+        <div class="letter-box">
+            <p>Tu cartita boba</p>
+            <button id="trickBtn" style="padding:10px 20px;font-size:1.2rem;border-radius:12px;border:none;background:#ff66c4;color:white;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.2);">Ver carta</button>
+        </div>
+    </div>
+
+    <script>
+        // Confetti automático
+        function random(min, max) { return Math.random() * (max - min) + min; }
+
+        function randomColor() {
+            const colors = ['#ff4daf', '#ffeb3b', '#4dd0e1', '#ff6f00', '#69f0ae'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        for (let i = 0; i < 40; i++) {
+            let c = document.createElement('div');
+            c.className = 'confetti';
+            c.style.left = random(0, 100) + 'vw';
+            c.style.background = randomColor();
+            c.style.animationDuration = random(3, 7) + 's';
+            c.style.width = c.style.height = random(6, 12) + 'px';
+            document.body.appendChild(c);
+        }
+    </script>
+<audio id="music" src="sonido.mp3"></audio>
+<script>
+let moves = 0;
+const btn = document.getElementById("trickBtn");
+const music = document.getElementById("music");
+btn.addEventListener("click", () => {
+    if (music.paused) music.play();
+    moves++;
+    if (moves < 20) {
+        btn.style.position = "absolute";
+        btn.style.left = Math.random()*80 + "vw";
+        btn.style.top = Math.random()*80 + "vh";
+    } else {
+        window.location.href = "carta.html";
+    }
+});
+</script>
+</body>
+</html>
